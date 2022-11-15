@@ -1,0 +1,405 @@
+<!Doctype html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width,
+        initial-scale=1.0"/>
+        <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+        <title>weather App</title>
+        <style>
+           .List{
+            display: inline-block;
+           
+           }
+           ul>li{
+            list-style: none;
+           }
+         
+          
+       .container{
+        background-color: white;
+       }
+       #searchbar{
+       border-radius: 20px;
+        height: 100px;
+       
+       }
+       .footer{
+        text-align: left;
+       }
+       
+       .image{
+        height: 50%;
+        background-color: rgb(42, 44, 165);
+       }
+       sup{
+        vertical-align: super;
+        font-size: medium;
+       }
+       sub{
+        vertical-align: sub;
+        font-size:  50px;
+       }
+
+       form{
+        display: flex;
+        padding-top: 20px;
+       }
+       .row{
+        margin-bottom: 50px;
+        display: flex;
+		padding-left : 50px;
+       
+       }
+       .row>div{
+        margin-right: 40px;;
+       }
+       footer{
+        margin-top: 30px;
+        padding-top: 30px;
+        padding-left : 50px;
+
+       }
+       
+       
+       
+        .degree_image{
+            display: flex;
+            margin-top: 25px;
+        }
+        .degree_image> span{
+            font-size: 12px;
+            margin-right: 5px;
+        }
+        @media (max-width: 1200px){
+
+        }
+      
+           
+        @media (min-width: 1121px) and (max-width: 1200px){
+
+        }
+        
+       
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div id="searchbar">
+                <form>
+                    <div class="col-5">
+                        <label for="" class="visually-hidden">type city here</label>
+                        <input type="type city here" class="form-control cityname" id="type city here" placeholder="type city here">
+                      </div>
+                      <div class="col-2">
+                        <button type="submit" class="btn btn-primary mb-3" onClick="JavaScript:handleSubmit(event)">Search</button>
+                      </div> 
+                </form>
+
+            </div>
+                    <h1 class="cname">
+                        Manhattan
+                    </h1>
+                    
+                    <ul>
+                         <li class = "dateDay">
+                             Sunday 06:00
+                        </li>
+                         <li class="description">
+                              clear
+                         </li>
+                    </ul>
+                    <div class="row">
+                        <div class="col-5">
+                            <p class="iconimg">
+                                <img src="https://ssl.gstatic.com/onebox/weather/64/sunny.png" alt="clear"/>
+                            </p>                                                      
+                            <strong><sub>66</sub></strong><sup><a href="#" onclick="fahrenheitToCelsuis();return false;">°C</a> | <a  href="#" onclick="celsuisToFahrenheit();return false;">°F</a></sup>
+                        </div>
+                        <div class="col-5">
+                            <ul class="List">
+                               
+                                <li>
+                                    Humidity: <span class="humid">84</span>%
+                                </li>
+                                <li>
+                                    wind: <span class="windspeed">5km/h</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                  
+        </div>
+       
+        <span>|</span>
+        <div class="container">
+            <h4>Today 7 days forecast</h4>
+        </div>
+       
+        <div class="row">
+            <div class="col-1">
+                <h4>Sun</h4>
+                 <h5 class="description0">rainy</h5>
+                 Wind:<span class="wind0">10</span>
+                 <div class="degree_image">
+                    <span> <strong class="temp0">6</strong><strong>°C</strong> </span>
+                    <p class="iconimg0"> 
+                        <img src="https://365psd.com/images/previews/d3d/rainy-weather-clip-art-51768.jpg" width="40px"/> 
+                    </p>
+                </div>
+            </div>
+            <div class="col-1">
+                <h4>Mon</h4>
+                 <h5 class="description1">rainy</h5>
+                 Wind:<span class="wind1">10</span>
+                 <div class="degree_image">
+                    <span> <strong class="temp1">6</strong><strong>°C</strong> </span>
+                    <p class="iconimg1"> 
+                        <img src="https://365psd.com/images/previews/d3d/rainy-weather-clip-art-51768.jpg" width="40px"/> 
+                    </p>
+                </div>
+            </div>
+            <div class="col-1">
+                <h4>Tue</h4>
+                 <h5 class="description2">cloudy</h5>
+                 wind:<span class="wind2">5</span>
+                 <div class="degree_image">
+                     <span> <strong class="temp2">23</strong><strong>°C</strong> </span>
+                     <p class="iconimg2">
+                        <img src="https://cdn1.vectorstock.com/i/1000x1000/90/60/cloudy-weather-vector-2969060.jpg" width="40px"/>
+                     </p>
+                     
+                 </div>
+                </div>
+             <div class="col-1">
+                <h4> Wed</h4>
+                 <h5 class="description3">rainy</h5>
+                 wind:<span class="wind3">6</span>
+                 <div class="degree_image">
+                    <span><strong class="temp3">20</strong><strong>°C</strong> </span>
+                    <p class="iconimg3">
+                        <img src="https://365psd.com/images/previews/d3d/rainy-weather-clip-art-51768.jpg" width="40px" />
+                    </p>
+                    
+                 </div>
+                </div>
+                   
+            <div class="col-1">
+                 <h4>Thu</h4>
+                  <h5 class="description4">cloudy</h5>
+                  wind:<span class="wind4">3</span>
+                  <div class="degree_image">
+                     <span><strong class="temp4">21</strong><strong>°C</strong> </span>
+                     <p class="iconimg4">
+                        <img src="https://cdn1.vectorstock.com/i/1000x1000/90/60/cloudy-weather-vector-2969060.jpg" width="40px" />
+                     </p>
+                  </div>
+                </div>
+             <div class="col-1">
+                <h4> Fri</h4>
+                  <h5 class="description5">cloudy</h5>
+                  wind:<span class="wind5">9</span>
+                  <div class="degree_image">
+                     <span><strong class="temp5">19</strong><strong>°C</strong> </span>
+                     <p class="iconimg5">
+                        <img src="https://cdn1.vectorstock.com/i/1000x1000/90/60/cloudy-weather-vector-2969060.jpg" width="40px" />
+                     </p>                     
+                 </div>
+                </div>
+            
+                <div class="col-1">
+                    <h4>Sat</h4>
+                     <h5 class="description6">rainy</h5>
+                     Wind:<span class="wind6">10</span>
+                     <div class="degree_image">
+                        <span> <strong class="temp6">6</strong><strong>°C</strong> </span>
+                        <p class="iconimg6"> 
+                            <img src="https://365psd.com/images/previews/d3d/rainy-weather-clip-art-51768.jpg" width="40px"/> 
+                        </p>
+                    </div>
+                </div>         
+
+
+         </div>
+            <div class="footer">
+                <a href=""> Open source code By </a>
+                 Victorine Bekotto.
+
+                 <a href="https://github.com/vickyrafna/shecodes8/index.html"> link to project</a>
+                
+            </div>
+
+      
+       
+        
+       <script>
+
+        let apiKey="3e552t11bd148932ba26fo2b9a557f20";
+       
+        
+        function printCity(event) {
+            event.preventDefault();
+            let cityname = document.querySelector(".cityname");
+            //console.log(cityname.value);
+            //let apiUrl=`https://api.shecodes.io/weather/v1/current?query=${cityname.value}&key=${apiKey}&units=metric`;
+            let apiUrl = `http://api.openweathermap.org/data/2.5/onecall?lat=30.489772&lon=-99.771335&lang=zh_cn`;
+            axios.get(apiUrl).then(displayTemperature);
+        }
+        function formatDate(today) {
+            let currentDay = today.getDay();
+            let days = [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday",
+                "Sunday"
+            ];
+
+            let day = days[currentDay];
+
+            let hours = today.getHours();
+            if (hours < 10) {
+                hours = `0${hours}`;
+            }
+            let minutes = today.getMinutes();
+            if (minutes < 10) {
+                minutes = `0${minutes}`;
+            }
+            return `${day} ${hours}:${minutes}`;
+        }
+
+       
+        function displayTemperature(response){
+
+            console.log(response.data);
+
+            let myday = new Date();
+            let dayNumber = myday.getDay();
+            console.log(dayNumber);
+
+            let cname = document.querySelector(".cname");
+            let iconimgD = document.querySelector(".iconimg");
+            let windspeedD = document.querySelector(".windspeed");
+            let humidD = document.querySelector(".humid");
+            let tempD = document.querySelector("sub");
+            let descriptionD = document.querySelector(".description");
+            let dateDay = document.querySelector(".dateDay");
+
+
+            cname.innerHTML = response.data.city;           
+            dateDay.innerHTML = formatDate(myday)
+
+            let tablelength = response.data.daily.length;
+            console.log(tablelength);
+            for (let i = 0; i < tablelength; i++) {
+                let temp = document.querySelector(`.temp${i}`);
+                let description = document.querySelector(`.description${i}`);
+                let iconimg = document.querySelector(`.iconimg${i}`);
+                let wind = document.querySelector(`.wind${i}`);
+
+                temp.innerHTML = Math.round(response.data.daily[i].temperature.day);
+                description.innerHTML = response.data.daily[i].condition.description;
+                iconimg.innerHTML = `<img src=\"${response.data.daily[i].condition.icon_url}\">`;
+                wind.innerHTML = response.data.daily[i].wind.speed;
+
+                if(dayNumber === i ){
+                    iconimgD.innerHTML = `<img src=\"${response.data.daily[i].condition.icon_url}\">`;            
+                    windspeedD.innerHTML = response.data.daily[i].wind.speed;
+                    humidD.innerHTML = response.data.daily[i].temperature.humidity;  
+                    tempD.innerHTML = Math.round( response.data.daily[i].temperature.day);                      
+                    descriptionD.innerHTML = response.data.daily[i].condition.description;
+
+                }
+               
+            }
+
+            
+            
+//day1
+/*
+            let temp1 = document.querySelector(".temp1");
+           let description1 = document.querySelector(".description1");
+           let iconimg1 = document.querySelector(".iconimg1");
+           let wind1 = document.querySelector(".wind1");
+
+           temp1.innerHTML = Math.round(response.data.daily[1].temperature.day);
+           description1.innerHTML = response.data.daily[1].condition.description;
+           iconimg1.innerHTML = `<img src=\"${response.data.daily[1].condition.icon_url}\">`;
+           wind1.innerHTML = response.data.daily[1].wind.speed;
+//day2
+            let temp2 = document.querySelector(".temp2");
+            let description2 = document.querySelector(".description2");
+            let iconimg2 = document.querySelector(".iconimg2");
+            let wind2 = document.querySelector(".wind2");
+
+            temp2.innerHTML = Math.round(response.data.daily[2].temperature.day);
+            description2.innerHTML = response.data.daily[2].condition.description;
+            iconimg2.innerHTML = `<img src=\"${response.data.daily[2].condition.icon_url}\">`;
+            wind2.innerHTML = response.data.daily[2].wind.speed;
+//day3
+            let temp3 = document.querySelector(".temp3");
+            let description3 = document.querySelector(".description3");
+            let iconimg3 = document.querySelector(".iconimg3");
+            let wind3 = document.querySelector(".wind3");
+
+            temp3.innerHTML = Math.round(response.data.daily[3].temperature.day);
+            description3.innerHTML = response.data.daily[3].condition.description;
+            iconimg3.innerHTML =  `<img src=\"${response.data.daily[3].condition.icon_url}\">`;
+            wind3.innerHTML = response.data.daily[3].wind.speed;
+//day4
+
+            let temp4 = document.querySelector(".temp4");
+            let description4 = document.querySelector(".description4");
+            let iconimg4 = document.querySelector(".iconimg4");
+            let wind4 = document.querySelector(".wind4");
+
+            temp4.innerHTML = Math.round(response.data.daily[4].temperature.day);
+            description4.innerHTML = response.data.daily[4].condition.description;
+            iconimg4.innerHTML =  `<img src=\"${response.data.daily[4].condition.icon_url}\">`;
+            wind4.innerHTML = response.data.daily[4].wind.speed;
+//day5
+            let temp5 = document.querySelector(".temp5");
+            let description5 = document.querySelector(".description5");
+            let iconimg5 = document.querySelector(".iconimg5");
+            let wind5 = document.querySelector(".wind5");
+
+            temp5.innerHTML = Math.round(response.data.daily[5].temperature.day);
+            description5.innerHTML = response.data.daily[5].condition.description;
+            iconimg5.innerHTML = `<img src=\"${response.data.daily[4].condition.icon_url}\">`;
+            wind5.innerHTML = response.data.daily[5].wind.speed;*/
+        }
+
+        function celsuisToFahrenheit(degreecelcuis) {
+            degreecelcuis = document.querySelector("sub").innerHTML;  
+            let fahrenheit = (degreecelcuis * 9) / 5 + 32;
+            let temp = document.querySelector("sub")
+            temp.innerHTML = Math.round(fahrenheit);
+        }
+        
+
+        function fahrenheitToCelsuis(degreef) {
+            degreef = document.querySelector("sub").innerHTML;  
+            let celsuis = ((degreef - 32) * 5) / 9;
+            let temp = document.querySelector("sub");
+            temp.innerHTML = Math.round(celsuis);
+        }
+        function search(city){
+            let apiKey = "3e552t11bd148932ba26fo2b9a557f20";
+            let apiUrl =`https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;          
+            axios.get(apiUrl).then(displayTemperature);            
+        }
+
+        function handleSubmit(event){
+            event.preventDefault();
+            let cityInputElement = document.querySelector(".cityname");
+            search(cityInputElement.value);
+        }
+       
+        
+       </script> 
+           
+    </body>
+    </html>
